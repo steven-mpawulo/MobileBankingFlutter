@@ -5,12 +5,15 @@ class MyTextInput extends StatelessWidget {
   final bool forPassword;
   final String hintText;
   final String label;
-  const MyTextInput(
-      {super.key,
-      required this.textEditingController,
-      required this.forPassword,
-      required this.hintText,
-      required this.label});
+  final Icon icon;
+  const MyTextInput({
+    super.key,
+    required this.textEditingController,
+    required this.forPassword,
+    required this.hintText,
+    required this.label,
+    required this.icon,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +36,24 @@ class MyTextInput extends StatelessWidget {
             obscureText: forPassword,
             cursorColor: Colors.black,
             decoration: InputDecoration(
+                suffixIcon: icon,
                 hintText: hintText,
-                border: OutlineInputBorder(),
-                focusedBorder: OutlineInputBorder()),
+                border: const OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.grey,
+                  ),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(8.0),
+                  ),
+                ),
+                focusedBorder: const OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.black,
+                  ),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(8.0),
+                  ),
+                )),
           ),
         ],
       ),

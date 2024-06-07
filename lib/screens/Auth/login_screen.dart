@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_banking/components/MyTextInput.dart';
+import 'package:mobile_banking/components/my_button.dart';
+import 'package:mobile_banking/components/my_textInput.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -42,13 +43,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       textEditingController: _email,
                       forPassword: false,
                       hintText: "johndoe@gamil.com",
+                      icon: const Icon(Icons.person),
                     ),
                     MyTextInput(
-                      label: "Password",
-                      textEditingController: _password,
-                      forPassword: true,
-                      hintText: "******",
-                    )
+                        label: "Password",
+                        textEditingController: _password,
+                        forPassword: true,
+                        hintText: "******",
+                        icon: const Icon(Icons.password)),
+                    MyButton(onPressed: () {}, buttonText: "Login")
                   ],
                 ),
               )
