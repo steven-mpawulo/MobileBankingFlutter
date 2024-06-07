@@ -3,8 +3,10 @@ import 'package:mobile_banking/components/my_button.dart';
 import 'package:mobile_banking/components/my_textInput.dart';
 import 'package:mobile_banking/global/global.dart';
 import 'package:mobile_banking/models/user.dart';
+import 'package:mobile_banking/models/wallet.dart';
 import 'package:mobile_banking/screens/Home/home_screen.dart';
 import 'package:mobile_banking/services/auth/auth_service.dart';
+import 'package:mobile_banking/services/wallet/wallet_service.dart';
 import 'package:provider/provider.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -83,12 +85,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                   showSnackBar("Invalid Credentials"));
                               return;
                             }
-
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        HomeScreen(user: user)));
+                                    builder: (context) => HomeScreen(
+                                          user: user,
+                                        )));
                           }
                         },
                         buttonText: "Login",

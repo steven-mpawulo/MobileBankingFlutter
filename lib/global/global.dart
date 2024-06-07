@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 SnackBar showSnackBar(String message) {
   return SnackBar(
@@ -8,4 +9,10 @@ SnackBar showSnackBar(String message) {
     ),
     backgroundColor: Colors.red,
   );
+}
+
+String formatBalance(double balance) {
+  NumberFormat formatter = NumberFormat("#,###.#");
+  String formattedBalance = formatter.format(balance);
+  return formattedBalance;
 }
