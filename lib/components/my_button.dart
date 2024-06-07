@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class MyButton extends StatelessWidget {
   final Function onPressed;
   final String buttonText;
+  final bool isLoading;
   const MyButton(
-      {super.key, required this.onPressed, required this.buttonText});
+      {super.key,
+      required this.onPressed,
+      required this.buttonText,
+      required this.isLoading});
 
   @override
   Widget build(BuildContext context) {
@@ -21,10 +26,15 @@ class MyButton extends StatelessWidget {
           onPressed: () {
             onPressed();
           },
-          child: Text(
-            buttonText,
-            style: const TextStyle(color: Colors.white),
-          ),
+          child: isLoading
+              ? const SpinKitWave(
+                  color: Colors.white,
+                  size: 20.0,
+                )
+              : Text(
+                  buttonText,
+                  style: const TextStyle(color: Colors.white),
+                ),
         ),
       ),
     );

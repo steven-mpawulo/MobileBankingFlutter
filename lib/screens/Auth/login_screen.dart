@@ -12,6 +12,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _email = TextEditingController();
   final TextEditingController _password = TextEditingController();
+  bool isLoading = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,7 +52,15 @@ class _LoginScreenState extends State<LoginScreen> {
                         forPassword: true,
                         hintText: "******",
                         icon: const Icon(Icons.password)),
-                    MyButton(onPressed: () {}, buttonText: "Login")
+                    MyButton(
+                      onPressed: () {
+                        setState(() {
+                          isLoading = !isLoading;
+                        });
+                      },
+                      buttonText: "Login",
+                      isLoading: isLoading,
+                    )
                   ],
                 ),
               )
