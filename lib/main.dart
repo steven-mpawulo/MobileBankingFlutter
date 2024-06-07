@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_banking/screens/Auth/login_screen.dart';
+import 'package:mobile_banking/services/auth/auth_service.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MobileBanking());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(create: (context) => AuthService()),
+  ], child: const MobileBanking()));
 }
 
 class MobileBanking extends StatelessWidget {

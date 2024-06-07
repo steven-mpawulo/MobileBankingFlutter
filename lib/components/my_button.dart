@@ -19,7 +19,7 @@ class MyButton extends StatelessWidget {
         height: 50.0,
         width: MediaQuery.of(context).size.width,
         decoration: const BoxDecoration(
-          color: Colors.greenAccent,
+          color: Colors.amber,
           borderRadius: BorderRadius.all(Radius.circular(8.0)),
         ),
         child: MaterialButton(
