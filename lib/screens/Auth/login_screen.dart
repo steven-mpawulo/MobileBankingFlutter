@@ -13,6 +13,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _email = TextEditingController();
   final TextEditingController _password = TextEditingController();
   bool isLoading = false;
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,6 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 16.0,
               ),
               Form(
+                key: _formKey,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       label: "Email",
                       textEditingController: _email,
                       forPassword: false,
-                      hintText: "johndoe@gamil.com",
+                      hintText: "johndoe@test.com",
                       icon: const Icon(Icons.person),
                     ),
                     MyTextInput(
@@ -54,9 +56,11 @@ class _LoginScreenState extends State<LoginScreen> {
                         icon: const Icon(Icons.password)),
                     MyButton(
                       onPressed: () {
-                        setState(() {
-                          isLoading = !isLoading;
-                        });
+                        if (_formKey.currentState!.validate()) {
+                          setState(() {
+                            isLoading = !isLoading;
+                          });
+                        }
                       },
                       buttonText: "Login",
                       isLoading: isLoading,

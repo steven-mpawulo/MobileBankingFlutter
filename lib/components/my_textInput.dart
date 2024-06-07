@@ -32,12 +32,22 @@ class MyTextInput extends StatelessWidget {
             height: 8.0,
           ),
           TextFormField(
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                String error = forPassword
+                    ? "Please enter your password"
+                    : "Please enter your email";
+                return error;
+              }
+              return null;
+            },
             controller: textEditingController,
             obscureText: forPassword,
             cursorColor: Colors.black,
             decoration: InputDecoration(
                 suffixIcon: icon,
                 hintText: hintText,
+                hintStyle: const TextStyle(color: Colors.grey),
                 border: const OutlineInputBorder(
                   borderSide: BorderSide(
                     color: Colors.grey,
