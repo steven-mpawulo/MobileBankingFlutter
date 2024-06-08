@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:mobile_banking/components/my_button.dart';
 import 'package:mobile_banking/components/my_textInput.dart';
 import 'package:mobile_banking/global/global.dart';
 import 'package:mobile_banking/models/transaction.dart';
 import 'package:mobile_banking/models/user.dart';
-import 'package:mobile_banking/models/wallet.dart';
 import 'package:mobile_banking/services/transaction/transaction_service.dart';
 import 'package:mobile_banking/services/wallet/wallet_service.dart';
 import 'package:provider/provider.dart';
@@ -55,12 +52,13 @@ class _HomeScreenState extends State<HomeScreen> {
               GestureDetector(
                 onTap: () {
                   showModalBottomSheet<void>(
+                    useSafeArea: true,
                     isScrollControlled: true,
                     context: context,
                     builder: (BuildContext context) {
                       return Padding(
                         padding: MediaQuery.of(context).viewInsets,
-                        child: Container(
+                        child: SizedBox(
                           height: MediaQuery.of(context).size.height / 1.5,
                           child: Padding(
                             padding: const EdgeInsets.all(16.0),
@@ -175,14 +173,35 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: ListView.builder(
                       itemCount: transactionService.transactions.length,
                       itemBuilder: (context, index) {
-                        return ListTile(
-                          title: Text(transactionService
-                              .transactions[index].description),
-                          leading: Text(formatAmount(
-                              transactionService.transactions[index].amount)),
-                          trailing: Text(formatDate(transactionService
-                              .transactions[index].date
-                              .toString())),
+                        return Column(
+                          children: [
+                            ListTile(
+                              title: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  const Text("Reason: "),
+                                  Text(transactionService
+                                      .transactions[index].description),
+                                ],
+                              ),
+                              leading: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  const Text(
+                                    "Amount: ",
+                                  ),
+                                  Text(formatAmount(transactionService
+                                      .transactions[index].amount)),
+                                ],
+                              ),
+                              trailing: Text(formatDate(transactionService
+                                  .transactions[index].date
+                                  .toString())),
+                            ),
+                            const Divider(),
+                          ],
                         );
                       }),
                 );
