@@ -2,7 +2,7 @@
 This is a simple Mobile Banking Application
 It provides users with a login screen, home screen and a pay bill bottom sheet
 
-## My Assumptions: 
+## My Assumptions
 I only have one active user with email: johndoe@test.com and password: 123456
 This user has accountBalance of 2000 and fullName of John Doe
 This user also has some transactions.
