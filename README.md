@@ -1,16 +1,24 @@
-# mobile_banking
+## Mobile Banking
+This is a simple Mobile Banking Application
+It provides users with a login screen, home screen and a pay bill bottom sheet
 
-A new Flutter project.
+## My Assumptions: 
+I only have one active user with email: johndoe@test.com and password: 123456
+This user has accountBalance of 2000 and fullName of John Doe
+This user also has some transactions.
+This user can make a bill payment to a provided account number
+The account balance and list of transactions will be updated after successful pill payment
 
-## Getting Started
+## Clone and install dependencies
+You will have to first clone this repository
 
-This project is a starting point for a Flutter application.
+Change directory into this cloned repository
+Then run flutter pub get
 
-A few resources to get you started if this is your first Flutter project:
+## Run the application
+Run the application using flutter run
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+
