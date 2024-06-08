@@ -36,7 +36,7 @@ class MyTextInput extends StatelessWidget {
               if (value == null || value.isEmpty) {
                 String error = forPassword
                     ? "Please enter your password"
-                    : "Please enter your email";
+                    : "Please enter your ${label.toLowerCase()}";
                 return error;
               }
               return null;

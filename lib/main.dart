@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_banking/screens/Auth/login_screen.dart';
 import 'package:mobile_banking/services/auth/auth_service.dart';
+import 'package:mobile_banking/services/transaction/transaction_service.dart';
 import 'package:mobile_banking/services/wallet/wallet_service.dart';
 import 'package:provider/provider.dart';
 
@@ -8,6 +9,7 @@ void main() {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (context) => AuthService()),
     ChangeNotifierProvider(create: (context) => WalletService()),
+    ChangeNotifierProvider(create: (context) => TransactionService())
   ], child: const MobileBanking()));
 }
 

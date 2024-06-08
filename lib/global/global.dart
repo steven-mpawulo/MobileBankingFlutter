@@ -11,8 +11,16 @@ SnackBar showSnackBar(String message) {
   );
 }
 
-String formatBalance(double balance) {
+String formatAmount(double balance) {
   NumberFormat formatter = NumberFormat("#,###.#");
   String formattedBalance = formatter.format(balance);
   return formattedBalance;
+}
+
+String formatDate(String unformattedDate) {
+  DateTime date = DateTime.parse(unformattedDate);
+  String dd = date.day.toString().padLeft(2, '0');
+  String mm = date.month.toString().padLeft(2, '0');
+  int yyyy = date.year;
+  return '$mm/$dd/$yyyy';
 }
